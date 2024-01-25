@@ -1,0 +1,6 @@
+[failure] Bonus
+          Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+          Called from Dune__exe__Part4.test_normalize in file "test/part4.ml", line 43, characters 39-52
+          Called from Alcotest_engine__Core.Make.protect_test.(fun) in file "src/alcotest-engine/core.ml", line 181, characters 17-23
+          Called from Alcotest_engine__Monad.Identity.catch in file "src/alcotest-engine/monad.ml", line 24, characters 31-35
+          
