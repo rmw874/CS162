@@ -31,7 +31,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/29             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |                        |     |
 | 1/31             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
 | 2/5              | Operational Semantics I                       | [lec7]                        |                  |                        |     |
-| 2/7              | Operational Semantics II                      |                               | 10.3             |                        | hw2 |
+| 2/7              | Operational Semantics II                      |                               | 10.3             | hw3                    | hw2 |
 | 2/12             | Operational Semantics III                     | [lec8]                        |                  |                        |     |
 | 2/14             | Type Checking I                               | [lec9]                        |                  |                        |     |
 | 2/19 (President) | No class                                      |                               |                  |                        |     |
@@ -42,6 +42,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  |                        |     |
 | 3/11             | Polymorphism                                  | [lec13]                       |                  |                        |     |
 | 3/13             | TBD                                           | [lec14]                       |                  |                        |     |
+
 # Grading
 
 1. 5 Programming Assignments: 70%
@@ -68,7 +69,7 @@ Credit: https://en.wikipedia.org/wiki/Academic_grading_in_the_United_States
 
 # Useful resources
 
-You will find the [λ<sup>+</sup> materials](lambda-plus.md) very helpful during
+You will find the [λ<sup>+</sup> materials](./homework/lamp.pdf) very helpful during
 this course.
 
 These resources are helpful for learning OCaml:
