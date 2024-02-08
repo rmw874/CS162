@@ -1,0 +1,43 @@
+[failure] Got stuck!
+Application of non-lambda
+in expression 0 0
+in expression (0 0) (lambda i. 
+                                                                   (i * 10000) + 1)
+in expression 
+(lambda o. (o 0) (lambda i. (i * 10000) + 1)) 0
+in expression 
+let join = lambda o1. lambda o2. (o1 0) (lambda x. (o2 0) (lambda y. 
+                                                             0 (x * y)))
+in (lambda o. (o 0) (lambda i. (i * 10000) + 1)) 0
+in expression 
+let option_to_int = lambda o. (o 0) (lambda i. (i * 10000) + 1)
+in let join = lambda o1. lambda o2. (o1 0) (lambda x. (o2 0) (lambda y. 
+                                                                0 (x * y)))
+   in option_to_int 0
+in expression 
+let some = let bonus = 0
+           in let some = bonus
+              in some
+in let option_to_int = lambda o. (o 0) (lambda i. (i * 10000) + 1)
+   in let join = lambda o1. lambda o2. (o1 0) (lambda x. (o2 0) (lambda y. 
+                                                                   some 
+                                                                    (x * y)))
+      in option_to_int 0
+in expression 
+let none = let bonus = 0
+           in let none = bonus
+              in none
+in let some = let bonus = 0
+              in let some = bonus
+                 in some
+   in let option_to_int = lambda o. (o 0) (lambda i. (i * 10000) + 1)
+      in let join = lambda o1. lambda o2. (o1 none) (lambda x. (o2 none) 
+                                                                 (lambda y. 
+                                                                    some 
+                                                                    (x * y)))
+         in option_to_int none
+          Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+          Called from Dune__exe__Test_lamp.test_eval in file "test/test_lamp.ml", line 52, characters 39-70
+          Called from Alcotest_engine__Core.Make.protect_test.(fun) in file "src/alcotest-engine/core.ml", line 181, characters 17-23
+          Called from Alcotest_engine__Monad.Identity.catch in file "src/alcotest-engine/monad.ml", line 24, characters 31-35
+          
