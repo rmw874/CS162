@@ -78,10 +78,7 @@ let rec eval (e : expr) : expr =
         | Lambda (Scope (x, body)) -> eval (subst x e2' body)
         | _ -> im_stuck "Application of non-lambda")
 
-    | Let (e1, Scope (x, e2)) -> (match eval e1 with
-      | e1' -> eval (subst x e1' e2)
-      | _ -> im_stuck (Fmt.str "Cannot evaluate let: %a" Pretty.pp_expr e)
-    )
+    | Let (e1, Scope (x, e2)) -> eval (subst x (eval e1) e2)
 
     | _ -> im_stuck (Fmt.str "Ill-formed expression: %a" Pretty.pp_expr e)
   with Stuck msg ->
