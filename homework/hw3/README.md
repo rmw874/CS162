@@ -90,7 +90,7 @@ Several things to note:
         ```
 
 2. Pattern-match on lists must end with the `end` keyword, unlike in OCaml.
-3. You can only compare integers for equality. Boolean and list equality can easily be implemented with custom functions, so we don't include them as built-in features to reduce make the core language as elegant as possible.
+3. You can only compare integers for equality. Boolean and list equality can easily be implemented with custom functions, so we don't include them as built-in features to make the core language as compact as possible.
 
 
 ### 1.2 Abstract Syntax
@@ -345,42 +345,45 @@ By compatible, we mean that if $e \Downarrow v$ using the original rules, then w
 ## Part 2. Augmenting the Interpreter
 
 
-**Problem (🧑‍💻, 40 points)** Augment the interpreter you wrote for HW2 with support of booleans, lists, and recursion according to the operational semantics specified in the [language reference manual](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf). Specifically, in the `subst` and `eval` functions:
-- Replace `prev ()` with the code you wrote in the previous assignment.
+**Problem (🧑‍💻, 40 points)** Augment the interpreter you wrote for HW2 with support of booleans, lists, and recursion according to the operational semantics specified in the [language reference manual](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf). Specifically, for the `free_vars`, `subst` and `eval` functions:
+- Copy and paste the code you wrote in the previous assignment for `free_vars`, `subst` and `eval` into `lib/lamp/eval.ml`.
 - Fill in `todo ()` with fresh code. *Hint*: the new cases of `free_vars` and `subst` should be trivial; you shouldn't need to modify `Var` or `Scope`.
 - Ignore `hmm ()` for this problem.
 
-We included some unit tests as well as a couple of realistic $\lambda^+$ programs in [test/examples/](test/examples/) that you can use to test your interpreter. You can also run the interpreter interactively or in file mode as described in the previous assignments.
+There are two ways to test your interpreter:
 
+1. We included some unit tests as well as a couple of realistic $\lambda^+$ programs in [test/examples/](test/examples/) that you can use to test your interpreter. Simply run `dune runtest`.
 
-If you want to run your interpreter interactively, simply run the following command:
-```bash
-dune exec lib/lamp/repl.exe
-```
+2. You can also run the interpreter interactively (REPL) or in file mode as described in the previous assignments. For file mode, do `dune exec bin/repl.exe -- <filename>`. For REPL, simply run the following command:
+   ```bash
+   dune exec bin/repl.exe
+   ```
 
-We added some convenience commands to the REPL:
-- `<expr>` triggers your interpreter to evaluate the expression, as usual.
-- `let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
-    ```
-    > let x = 10
-    x = 10
+   We added some convenience commands to the REPL:
+   - `<expr>` triggers your interpreter to evaluate the expression, as usual.
+   - `#let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
+       ```
+       > #let x = 10
+       x = 10
 
-    > x + 1
-    <== x + 1
-    [eval] ==> 11
+       > x + 1
+       <== x + 1
+       [eval] ==> 11
 
-    > let x = 20
-    x = 20
+       > #let x = 20
+       x = 20
 
-    > x + 1
-    <== x + 1
-    [eval] ==> 21
-    ```
-   Note that later bindings may shadow earlier ones, just like in OCaml.
-- `#print` shows the current binding environment.
-- `#clear` resets the binding environment.
-- `#save <filename>` saves the current history of commands to a file
-- `#load <filename>` loads a file containing a list of commands and replays them. Binding commands are also replayed, so you can create a file that contains a sequence of `let` commands and replay them to set up a particular environment. You can load multiple files by doing multiple `#load` commands.
+       > x + 1
+       <== x + 1
+       [eval] ==> 21
+       ```
+      Note that 
+        1. This syntax is only available in the REPL mode. Do not confuse it with `let`-expressions in the language itself, which you implemented in HW2.
+        2. Later bindings may shadow earlier ones, just like in OCaml.
+   - `#print` shows the current binding environment.
+   - `#clear` resets the binding environment.
+   - `#save <filename>` saves the current history of commands to a file
+   - `#load <filename>` loads a file containing a list of commands and replays them. Binding commands are also replayed, so you can create a file that contains a sequence of `#let` commands and replay them to set up a particular environment. You can load multiple files by doing multiple `#load` commands.
 
 ## Part 3. Semantics Reverse-Engineering
 
@@ -439,7 +442,7 @@ can be typeset with
 where `infer<n>` denotes the usage of a rule with `n` hypotheses.
 
 
-
+Once you're satisfied with your rules, you can optionally implement the `Pair`, `Fst`, and `Snd` cases of the `eval` function, although none of the autograder tests involve those cases.
 
 
 
@@ -707,7 +710,7 @@ Translate `zero_encoding` and `succ_encoding` from OCaml to $\lambda$-calculus.
 
 *Hint*: for `succ_encoding`, remember that any occurrence of `elim_nat n <args>` in OCaml simply becomes `n <args>` in $\lambda$-calculus, since an encoded natural number is, by definition, its elimination form!
 
-Provide your solutions in `lib/meta/encodings.ml`. Specifically, locate the OCaml list called `encodings`, and replace `bonus` with a concrete $\lambda^+$ expression. 
+Provide your solutions in `lib/meta/encodings.ml`. Specifically, locate the entries `("zero",  "0")` and `("succ", "0")` in the OCaml list called `encodings`, and replace `"0"` with a concrete $\lambda^+$ expression. 
 
 There are two ways to test your solution.
 
@@ -715,11 +718,11 @@ There are two ways to test your solution.
 
 2. You can also verify your solution in $\lambda^+$ using your own interpreter or the reference interpreter on CSIL. It might be hard to tell which natural number is encoded by a lambda expression. To remedy this, we have provided a decoder function in `decoder.txt` to convert an encoded nat into a native integer in $\lambda^+$. For example, if you're using the REPL:
    ```ocaml
-   #load decoders.txt
+   > #load decoders.txt
 
-   > let zero = ...
+   > #let zero = ...
 
-   > let succ = ...
+   > #let succ = ...
 
    > dec_nat (succ (succ (zero))) // should evaluate to 2
    ```
@@ -784,19 +787,17 @@ type 'a list = Nil | Cons of 'a * 'a list
 In $\lambda^+$,
 1. Implement the encoding of `Nil` and that of the `Cons` constructor.
 
-   *Hint:* You can convert from an encoded list to a native list using the following function:
+We have provided a function called `dec_list` that converts an encoded list to a native list:
    ```ocaml
    let nil = ... in
    let cons = ... in
-   fun to_list with l = 
-       l Nil (lambda h,_,r. h::r)) in
-   in (to_list (cons 1 (cons 2 (cons 3 nil ))))
+   in (dec_list (cons 1 (cons 2 (cons 3 nil ))))
    ```
-   The above program constructs the encoding of the list containing 1, 2, and 3, and then calls `to_list` to convert it into a native list in $\lambda^+$.
+   The above program constructs the encoding of the list containing 1, 2, and 3, and then calls `dec_list` to convert it into the native list `1::2::3::Nil`. You can find the definition of `dec_list` in `decoders.txt`, or in `lib/meta/meta.ml`.
 
-2. Implement a function `length` that computes the length of encoded lists, without using `fix` or `rec`. Your function should return a native integer, instead of encoded natural numbers.
+1. Implement a function `length` that computes the length of encoded lists, without using `fix` or `rec`. Your function should return encoded natural numbers, instead of native integers.
 
-Provide your solutions in `lib/meta/encodings.ml`. The test file `test/test_meta.ml` contains some unit tests. Feel free to add more. We have provided a `dec_list` function (defined in `lib/meta/meta.ml`) that converts an encoded list to a native list.
+Provide your solutions in `lib/meta/encodings.ml`. The test file `test/test_meta.ml` contains some unit tests. Feel free to add more. 
 
 
 [^solve:] People usually call the `solve` function from HW2 `fold_right`, and they sometimes claim that `fold_right` is the most general recursive function on lists. So, next time when you're walking in the street and hear people making such claims, you can now show them that your `elim_list` is strictly more powerful than their `fold_right`, by challenging them to a duel of defining the `tail` function on lists using `elim_list` vs using `fold_right` :)
@@ -832,7 +833,7 @@ type 'a tree =
 **Problem (⭐️bonus⭐️, 0.5 point)**:
 In $\lambda^+$:
 1. Implement the encoding of `Leaf` and that of the `Node` constructor.
-2. Implement a function `size` that computes the size of encoded binary trees, without using `fix` or `rec`. Your function should return a native integer, instead of encoded natural numbers.
+2. Implement a function `size` that computes the size of encoded binary trees, without using `fix` or `rec`. Your function should return encoded natural numbers, instead of native integers.
 
 Provide your solutions in `lib/meta/encodings.ml`. We have provided a `dec_tree` function (defined in `lib/meta/meta.ml`) that converts an encoded binary tree to a native list: leaves are mapped to `Nil`, and a node with value `v`, left subtree `l`, and right subtree `r` is mapped to the list `v::(l::r)`.
 
@@ -988,7 +989,7 @@ To summarize, we now have three ways to evaluate $\lambda$-calculus expressions:
 
 <img src="https://github.com/fredfeng/CS162/blob/master/homework/hw3/diagram.png?raw=true" width="500">
 
-You can now run your meta-circular interpreter. Type `dune exec lib/lamp/repl.exe` in your terminal.
+You can now run your meta-circular interpreter. Type `dune exec bin/repl.exe` in your terminal.
 Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode, if you type an expression, the REPL will
 1. Desugar all integers, booleans, lists and products into lambda functions, using the encodings that you wrote in `encodings.ml`.
 2. Normalize the expression a little bit
@@ -997,19 +998,19 @@ Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode,
 
 For example, you can try the following:
 ```bash
-$ dune exec lib/lamp/repl.exe
+$ dune exec bin/repl.exe
 Welcome to lambda+! Built on: Wed Feb 7 18:19:16 PST 2024
 +settings: synth=off
 > +meta
 . entering meta-circular mode
 
-meta> let tt = lambda x,y. x // true
+meta> #let tt = lambda x,y. x // true
 [meta] tt = lambda _0. lambda _1. _0
 
-meta> let ff = lambda x,y. y // false
+meta> #let ff = lambda x,y. y // false
 [meta] ff = lambda _0. lambda _1. _1
 
-meta> let not = lambda b. b ff tt // negation
+meta> #let not = lambda b. b ff tt // negation
 [meta] not = lambda _0.
               (_0 (lambda _1. lambda _2. _2)) (lambda _3. lambda _4. _3)
 
@@ -1018,15 +1019,15 @@ meta> not tt
 [meta] ==> lambda _0. lambda _1. _1
 [eval] ==> lambda _1. lambda _2. _2
 ```
-The `[meta] ==> <expr>` line shows the result of the meta-circular interpreter, while `[eval ==> <eval>` shows the result of your `eval` function. You can compare them and check that they are the same (up to $\alpha$-equivalence). In this case, the meta-circular interpreter correctly evaluated `not tt` to `lambda _0. lambda _1. _1`, which is the encoding of `false`.
+The `[meta] ==> <expr>` line shows the result of the meta-circular interpreter, while `[eval] ==> <eval>` shows the result of your `eval` function. You can compare them and check that they are the same (up to $\alpha$-equivalence). In this case, the meta-circular interpreter correctly evaluated `not tt` to `lambda _0. lambda _1. _1`, which is the encoding of `false`.
 
 However, since the results are now encoded, it can be hard to tell what they represent. Luckily, the bindings created in the `meta` mode persist even if we leave the meta-circular mode. So you can invoke the appropriate decoder function `dec_*` to convert the encoded result back into a native value. For example, you can do
 ```ocaml
 ...
-meta> let x = not tt
+meta> #let x = not tt
 [meta] x = lambda _0. lambda _1. _1
 
-meta> let y = 2 * 3
+meta> #let y = 2 * 3
 [meta] y = ...
 
 meta> -meta

@@ -69,7 +69,9 @@ let subst_tests =
   [ test_subst_s ~x:"var" ~e:"1" ~c:"var < var" (*expected *) "1 < 1" ]
 
 let eval_tests =
+  (* test an input expression evaluates to the expected output *)
   let t = test_eval_s in
+  (* parse the file containing an input expression, and check that it evaluates to the expected output *)
   let tf = test_eval_file in
   [
     test_eval_s (* input *) "1+2" (* expected *) "3"; (*0*)
@@ -81,14 +83,16 @@ let eval_tests =
     t
       "(lambda f. (lambda x. f (lambda v. x x v)) (lambda x. f (lambda v. x x \
        v))) (lambda f, g, x. g x + 1) (lambda x. x*2) 3"
-      "7"; (*6*)
-    tf "examples/fib.lp" "832040"; (*7*)
-    tf "examples/add_n.lp" "11::12::Nil"; (*8*)
-    tf "examples/primes.lp" 
-      "2::3::5::7::11::13::17::19::23::29::31::37::41::43::47::53::59::61::67::71::Nil"; (*9*)
-    tf "examples/fib_pair.lp" "832040"; (*10*)
-    tf "examples/mutual_rec.lp" "false"; (*11*)
+      "7";
+    tf "examples/fib.lp" "832040";
+    tf "examples/add_n.lp" "11::12::Nil";
+    tf "examples/primes.lp"
+      "2::3::5::7::11::13::17::19::23::29::31::37::41::43::47::53::59::61::67::71::Nil";
   ]
+
+let product_tests =
+  let tf = test_eval_file in
+  [ tf "examples/fib_pair.lp" "832040"; tf "examples/mutual_rec.lp" "false" ]
 
 let eval_stuck_tests = [ test_stuck_s (* input *) "if 1 then 2 else 3" ]
 
@@ -98,7 +102,5 @@ let tests =
     ("subst", subst_tests);
     ("eval", eval_tests);
     ("eval_stuck", eval_stuck_tests);
-    (* ("encoded_nat", encoded_nat_tests); *)
-    (* ("encoded_list", encoded_list_tests); *)
-    (* ("encoded_tree", encoded_tree_tests); *)
+    ("product", product_tests);
   ]
