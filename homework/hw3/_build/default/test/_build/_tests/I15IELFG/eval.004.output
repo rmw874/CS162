@@ -1,0 +1,2 @@
+[33mASSERT[0m let add = lambda x. lambda y. x + y in
+(add 2) 3

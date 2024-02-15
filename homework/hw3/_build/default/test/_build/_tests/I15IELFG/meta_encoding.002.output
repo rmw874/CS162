@@ -1,0 +1,10 @@
+[exception] Meta.Error("[normalize] Unsupported: 0")
+            Raised at Meta.normalize.helper in file "lib/meta/meta.ml", line 156, characters 8-92
+            Called from Meta.normalize.helper in file "lib/meta/meta.ml", line 151, characters 17-29
+            Called from Meta.normalize.helper in file "lib/meta/meta.ml", line 151, characters 17-29
+            Called from Meta.eval in file "lib/meta/meta.ml", line 229, characters 2-56
+            Called from Dune__exe__Test_meta.test_meta_with_decoder.(fun) in file "test/test_meta.ml", line 29, characters 60-71
+            Called from Dune__exe__Test_lamp.test_eval_with in file "test/test_lamp.ml", line 42, characters 14-17
+            Called from Alcotest_engine__Core.Make.protect_test.(fun) in file "src/alcotest-engine/core.ml", line 181, characters 17-23
+            Called from Alcotest_engine__Monad.Identity.catch in file "src/alcotest-engine/monad.ml", line 24, characters 31-35
+            

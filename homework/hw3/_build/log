@@ -1,4 +1,4 @@
-# dune build
+# dune runtest
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Shared cache location: /Users/oscar/.cache/dune/db
@@ -20,42 +20,671 @@
 #        }
 #  ; instrument_with = []
 #  }
-$ /Users/oscar/.opam/cs162/bin/ocamlc.opt -config > /var/folders/bb/dlb0gm215ln6kljb4r1ytcmc0000gn/T/dune_18d859_output
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -impl bin/repl.ml) > _build/default/bin/.repl.eobjs/dune__exe__Repl.impl.d
-$ (cd _build/default/bin && /bin/bash -c 'echo let date = \"$(date)\" > build_metadata.ml')
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o lib/meta/meta.cma lib/meta/.meta.objs/byte/meta_lp.cmo lib/meta/.meta.objs/byte/encodings.cmo lib/meta/.meta.objs/byte/meta.cmo)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -impl bin/build_metadata.ml) > _build/default/bin/.repl.eobjs/dune__exe__Build_metadata.impl.d
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/lamp/.lamp.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/byte/vars.cmo -c -impl lib/lamp/vars.pp.ml)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -intf bin/repl.mli) > _build/default/bin/.repl.eobjs/dune__exe__Repl.intf.d
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I bin/.repl.eobjs/byte -no-alias-deps -opaque -o bin/.repl.eobjs/byte/dune__exe.cmo -c -impl bin/.repl.eobjs/dune__exe.ml-gen)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/lamp/.lamp.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/byte/parser.cmo -c -impl lib/lamp/parser.pp.ml)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/lamp/.lamp.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/byte/eval.cmo -c -impl lib/lamp/eval.pp.ml)
-> File "lib/lamp/eval.ml", line 4, characters 4-8:
-> 4 | let todo () = Num (-1000)
->         ^^^^
-> Warning 32 [unused-value-declaration]: unused value todo.
-> File "lib/lamp/eval.ml", line 5, characters 4-7:
-> 5 | let hmm () = Num (-2000)
->         ^^^
-> Warning 32 [unused-value-declaration]: unused value hmm.
-> File "lib/lamp/eval.ml", line 146, characters 15-16:
-> 146 | let eval_fast (e : expr) = failwith ".."
->                      ^
-> Warning 27 [unused-var-strict]: unused variable e.
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I bin/.repl.eobjs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/linenoise -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/meta/.meta.objs/byte -no-alias-deps -opaque -open Dune__exe -o bin/.repl.eobjs/byte/dune__exe__Build_metadata.cmo -c -impl bin/build_metadata.ml)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I bin/.repl.eobjs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/linenoise -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/meta/.meta.objs/byte -no-alias-deps -opaque -open Dune__exe -o bin/.repl.eobjs/byte/dune__exe__Repl.cmi -c -intf bin/repl.mli)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o lib/lamp/lamp.cma lib/lamp/.lamp.objs/byte/vars.cmo lib/lamp/.lamp.objs/byte/ast.cmo lib/lamp/.lamp.objs/byte/err.cmo lib/lamp/.lamp.objs/byte/parser.cmo lib/lamp/.lamp.objs/byte/scanner.cmo lib/lamp/.lamp.objs/byte/parse_util.cmo lib/lamp/.lamp.objs/byte/eval.cmo)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I bin/.repl.eobjs/byte -I bin/.repl.eobjs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o bin/.repl.eobjs/native/dune__exe.cmx -c -impl bin/.repl.eobjs/dune__exe.ml-gen)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I bin/.repl.eobjs/byte -I bin/.repl.eobjs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/linenoise -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o bin/.repl.eobjs/native/dune__exe__Build_metadata.cmx -c -impl bin/build_metadata.ml)
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -shared -linkall -I lib/meta -o lib/meta/meta.cmxs lib/meta/meta.cmxa)
-> ld: warning: -undefined suppress is deprecated
-> ld: warning: -undefined suppress is deprecated
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -shared -linkall -I lib/lamp -o lib/lamp/lamp.cmxs lib/lamp/lamp.cmxa)
-> ld: warning: -undefined suppress is deprecated
-> ld: warning: -undefined suppress is deprecated
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I bin/.repl.eobjs/byte -I bin/.repl.eobjs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/linenoise -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o bin/.repl.eobjs/native/dune__exe__Repl.cmx -c -impl bin/repl.ml)
-> File "bin/repl.ml", line 3, characters 0-11:
-> 3 | open Format
->     ^^^^^^^^^^^
-> Warning 33 [unused-open]: unused open Stdlib.Format.
-$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -o bin/repl.exe /Users/oscar/.opam/cs162/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types /Users/oscar/.opam/cs162/lib/base/caml/caml.cmxa /Users/oscar/.opam/cs162/lib/sexplib0/sexplib0.cmxa /Users/oscar/.opam/cs162/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/oscar/.opam/cs162/lib/base/base.cmxa -I /Users/oscar/.opam/cs162/lib/base /Users/oscar/.opam/cs162/lib/fmt/fmt.cmxa /Users/oscar/.opam/cs162/lib/result/result.cmxa /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime/ppx_deriving_runtime.cmxa lib/lamp/lamp.cmxa lib/meta/meta.cmxa /Users/oscar/.opam/cs162/lib/linenoise/linenoise.cmxa -I /Users/oscar/.opam/cs162/lib/linenoise bin/.repl.eobjs/native/dune__exe.cmx bin/.repl.eobjs/native/dune__exe__Build_metadata.cmx bin/.repl.eobjs/native/dune__exe__Repl.cmx)
+$ /Users/oscar/.opam/cs162/bin/ocamlc.opt -config > /var/folders/bb/dlb0gm215ln6kljb4r1ytcmc0000gn/T/dune_ffb589_output
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlyacc lib/lamp/parser.mly)
+> 36 shift/reduce conflicts.
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamllex -q -o lib/lamp/scanner.ml lib/lamp/scanner.mll)
+$ (cd _build/.sandbox/b856beff55284413ea437086d7edc14e/default && .ppx/b25831a27f6cc3ffc0d27a4be900dbfc/ppx.exe --cookie 'library-name="lamp"' -o lib/lamp/parser.pp.mli --intf lib/lamp/parser.mli -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ (cd _build/.sandbox/a55cd9652db5f9807460c5d644fe4fff/default && .ppx/b25831a27f6cc3ffc0d27a4be900dbfc/ppx.exe --cookie 'library-name="lamp"' -o lib/lamp/parser.pp.ml --impl lib/lamp/parser.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ (cd _build/.sandbox/739cb0cd3e53acc19854e3db586db13a/default && .ppx/b25831a27f6cc3ffc0d27a4be900dbfc/ppx.exe --cookie 'library-name="lamp"' -o lib/lamp/scanner.pp.ml --impl lib/lamp/scanner.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -intf lib/lamp/parser.pp.mli) > _build/default/lib/lamp/.lamp.objs/parser.intf.d
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -impl lib/lamp/scanner.pp.ml) > _build/default/lib/lamp/.lamp.objs/scanner.impl.d
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -impl lib/lamp/parser.pp.ml) > _build/default/lib/lamp/.lamp.objs/parser.impl.d
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/lamp/.lamp.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -no-alias-deps -opaque -o lib/lamp/.lamp.objs/byte/parser.cmi -c -intf lib/lamp/parser.pp.mli)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/lamp/.lamp.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -no-alias-deps -opaque -o lib/lamp/.lamp.objs/byte/scanner.cmo -c -impl lib/lamp/scanner.pp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/lamp/.lamp.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -no-alias-deps -opaque -o lib/lamp/.lamp.objs/byte/parse_util.cmo -c -impl lib/lamp/parse_util.pp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/meta/.meta.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -no-alias-deps -opaque -o lib/meta/.meta.objs/byte/meta_lp.cmo -c -impl lib/meta/meta_lp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/meta/.meta.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -no-alias-deps -opaque -o lib/meta/.meta.objs/byte/encodings.cmo -c -impl lib/meta/encodings.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/meta/.meta.objs/byte -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -no-alias-deps -opaque -o lib/meta/.meta.objs/byte/meta.cmo -c -impl lib/meta/meta.ml)
+> File "lib/meta/meta.ml", line 102, characters 10-14:
+> 102 |   let rec list = function
+>                 ^^^^
+> Warning 39 [unused-rec-flag]: unused rec flag.
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -impl test/test_lamp.ml) > _build/default/test/.hw3_test.eobjs/dune__exe__Test_lamp.impl.d
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -bin-annot -I test/.hw3_test.eobjs/byte -I /Users/oscar/.opam/cs162/lib/alcotest -I /Users/oscar/.opam/cs162/lib/alcotest/engine -I /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext -I /Users/oscar/.opam/cs162/lib/astring -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/cmdliner -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/re -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/seq -I /Users/oscar/.opam/cs162/lib/sexplib0 -I /Users/oscar/.opam/cs162/lib/stdlib-shims -I /Users/oscar/.opam/cs162/lib/uutf -I lib/lamp/.lamp.objs/byte -I lib/meta/.meta.objs/byte -no-alias-deps -opaque -open Dune__exe -o test/.hw3_test.eobjs/byte/dune__exe__Hw3_test.cmi -c -intf test/hw3_test.mli)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -bin-annot -I test/.hw3_test.eobjs/byte -I /Users/oscar/.opam/cs162/lib/alcotest -I /Users/oscar/.opam/cs162/lib/alcotest/engine -I /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext -I /Users/oscar/.opam/cs162/lib/astring -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/cmdliner -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/re -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/seq -I /Users/oscar/.opam/cs162/lib/sexplib0 -I /Users/oscar/.opam/cs162/lib/stdlib-shims -I /Users/oscar/.opam/cs162/lib/uutf -I lib/lamp/.lamp.objs/byte -I lib/meta/.meta.objs/byte -no-alias-deps -opaque -open Dune__exe -o test/.hw3_test.eobjs/byte/dune__exe__Test_lamp.cmo -c -impl test/test_lamp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -bin-annot -I test/.hw3_test.eobjs/byte -I /Users/oscar/.opam/cs162/lib/alcotest -I /Users/oscar/.opam/cs162/lib/alcotest/engine -I /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext -I /Users/oscar/.opam/cs162/lib/astring -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/cmdliner -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/re -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/seq -I /Users/oscar/.opam/cs162/lib/sexplib0 -I /Users/oscar/.opam/cs162/lib/stdlib-shims -I /Users/oscar/.opam/cs162/lib/uutf -I lib/lamp/.lamp.objs/byte -I lib/meta/.meta.objs/byte -no-alias-deps -opaque -open Dune__exe -o test/.hw3_test.eobjs/byte/dune__exe__Test_meta.cmo -c -impl test/test_meta.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -intf-suffix .ml -no-alias-deps -opaque -o lib/meta/.meta.objs/native/meta_lp.cmx -c -impl lib/meta/meta_lp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/native/parse_util.cmx -c -impl lib/lamp/parse_util.pp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -intf-suffix .ml -no-alias-deps -opaque -o lib/meta/.meta.objs/native/encodings.cmx -c -impl lib/meta/encodings.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/native/scanner.cmx -c -impl lib/lamp/scanner.pp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/native/parser.cmx -c -impl lib/lamp/parser.pp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -I test/.hw3_test.eobjs/byte -I test/.hw3_test.eobjs/native -I /Users/oscar/.opam/cs162/lib/alcotest -I /Users/oscar/.opam/cs162/lib/alcotest/engine -I /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext -I /Users/oscar/.opam/cs162/lib/astring -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/cmdliner -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/re -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/seq -I /Users/oscar/.opam/cs162/lib/sexplib0 -I /Users/oscar/.opam/cs162/lib/stdlib-shims -I /Users/oscar/.opam/cs162/lib/uutf -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o test/.hw3_test.eobjs/native/dune__exe__Test_lamp.cmx -c -impl test/test_lamp.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -I test/.hw3_test.eobjs/byte -I test/.hw3_test.eobjs/native -I /Users/oscar/.opam/cs162/lib/alcotest -I /Users/oscar/.opam/cs162/lib/alcotest/engine -I /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext -I /Users/oscar/.opam/cs162/lib/astring -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/cmdliner -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/re -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/seq -I /Users/oscar/.opam/cs162/lib/sexplib0 -I /Users/oscar/.opam/cs162/lib/stdlib-shims -I /Users/oscar/.opam/cs162/lib/uutf -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o test/.hw3_test.eobjs/native/dune__exe__Hw3_test.cmx -c -impl test/hw3_test.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -intf-suffix .ml -no-alias-deps -opaque -o lib/meta/.meta.objs/native/meta.cmx -c -impl lib/meta/meta.ml)
+> File "lib/meta/meta.ml", line 102, characters 10-14:
+> 102 |   let rec list = function
+>                 ^^^^
+> Warning 39 [unused-rec-flag]: unused rec flag.
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -ppx '.ppx/62cac082b311a96f118b73f8967f0789/ppx.exe --as-ppx' -I test/.hw3_test.eobjs/byte -I test/.hw3_test.eobjs/native -I /Users/oscar/.opam/cs162/lib/alcotest -I /Users/oscar/.opam/cs162/lib/alcotest/engine -I /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext -I /Users/oscar/.opam/cs162/lib/astring -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/cmdliner -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/re -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/seq -I /Users/oscar/.opam/cs162/lib/sexplib0 -I /Users/oscar/.opam/cs162/lib/stdlib-shims -I /Users/oscar/.opam/cs162/lib/uutf -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I lib/meta/.meta.objs/byte -I lib/meta/.meta.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o test/.hw3_test.eobjs/native/dune__exe__Test_meta.cmx -c -impl test/test_meta.ml)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o lib/meta/meta.cmxa lib/meta/.meta.objs/native/meta_lp.cmx lib/meta/.meta.objs/native/encodings.cmx lib/meta/.meta.objs/native/meta.cmx)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o lib/lamp/lamp.cmxa lib/lamp/.lamp.objs/native/vars.cmx lib/lamp/.lamp.objs/native/ast.cmx lib/lamp/.lamp.objs/native/err.cmx lib/lamp/.lamp.objs/native/parser.cmx lib/lamp/.lamp.objs/native/scanner.cmx lib/lamp/.lamp.objs/native/parse_util.cmx lib/lamp/.lamp.objs/native/eval.cmx)
+$ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/hw3_test.exe /Users/oscar/.opam/cs162/lib/fmt/fmt.cmxa /Users/oscar/.opam/cs162/lib/astring/astring.cmxa /Users/oscar/.opam/cs162/lib/cmdliner/cmdliner.cmxa /Users/oscar/.opam/cs162/lib/uutf/uutf.cmxa /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/oscar/.opam/cs162/lib/fmt/fmt_cli.cmxa /Users/oscar/.opam/cs162/lib/re/re.cmxa /Users/oscar/.opam/cs162/lib/stdlib-shims/stdlib_shims.cmxa /Users/oscar/.opam/cs162/lib/alcotest/engine/alcotest_engine.cmxa /Users/oscar/.opam/cs162/lib/ocaml/unix.cmxa -I /Users/oscar/.opam/cs162/lib/ocaml /Users/oscar/.opam/cs162/lib/fmt/fmt_tty.cmxa /Users/oscar/.opam/cs162/lib/alcotest/alcotest.cmxa -I /Users/oscar/.opam/cs162/lib/alcotest /Users/oscar/.opam/cs162/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types /Users/oscar/.opam/cs162/lib/base/caml/caml.cmxa /Users/oscar/.opam/cs162/lib/sexplib0/sexplib0.cmxa /Users/oscar/.opam/cs162/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/oscar/.opam/cs162/lib/base/base.cmxa -I /Users/oscar/.opam/cs162/lib/base /Users/oscar/.opam/cs162/lib/result/result.cmxa /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime/ppx_deriving_runtime.cmxa lib/lamp/lamp.cmxa lib/meta/meta.cmxa test/.hw3_test.eobjs/native/dune__exe.cmx test/.hw3_test.eobjs/native/dune__exe__Test_lamp.cmx test/.hw3_test.eobjs/native/dune__exe__Test_meta.cmx test/.hw3_test.eobjs/native/dune__exe__Hw3_test.cmx)
+$ (cd _build/default/test && ./hw3_test.exe)
+> Testing `hw3'.
+> This run has ID `I15IELFG'.
+>
+>   [OK]          free_vars              0   free_vars.
+>   [OK]          subst                  0   subst.
+>   [OK]          eval                   0   eval.
+>   [OK]          eval                   1   eval.
+>   [OK]          eval                   2   eval.
+>   [OK]          eval                   3   eval.
+>   [OK]          eval                   4   eval.
+>   [OK]          eval                   5   eval.
+>   [OK]          eval                   6   eval.
+>   [OK]          eval                   7   eval.
+>   [OK]          eval                   8   eval.
+>   [OK]          eval                   9   eval.
+>   [OK]          eval_stuck             0   eval_stuck.
+>   [OK]          product                0   product.
+>   [OK]          product                1   product.
+> > [FAIL]        meta_encoding          0   meta_encoding.
+>   [FAIL]        meta_encoding          1   meta_encoding.
+>   [FAIL]        meta_encoding          2   meta_encoding.
+>
+> ┌──────────────────────────────────────────────────────────────────────────────┐
+> │ [FAIL]        meta_encoding          0   meta_encoding.                      │
+> └──────────────────────────────────────────────────────────────────────────────┘
+> [failure] Got stuck!
+> Cannot add values: true + 1
+> in expression true + 1
+> in expression (lambda _.
+>                                                                     true + 1)
+>                                                                    0
+> in expression 
+> ((lambda _. true + 1) 0)
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 1)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 2)
+>                 (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                    ((lambda _. true + 1) 0))))
+>             (((lambda _. true + 1) 3)
+>                (((lambda _. true + 1)
+>                    (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                       ((lambda _. true + 1) 1)))
+>                   ((lambda _. true + 1) 0))))))
+>      (((lambda _. true + 1) 4)
+>         (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))
+> in expression 
+> (lambda _. true + 1)
+>   (((lambda _. true + 1) 0)
+>      (((lambda _. true + 1)
+>          (((lambda _. true + 1) 1)
+>             (((lambda _. true + 1)
+>                 (((lambda _. true + 1) 2)
+>                    (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                       ((lambda _. true + 1) 0))))
+>                (((lambda _. true + 1) 3)
+>                   (((lambda _. true + 1)
+>                       (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                          ((lambda _. true + 1) 1)))
+>                      ((lambda _. true + 1) 0))))))
+>         (((lambda _. true + 1) 4)
+>            (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+> in expression 
+> ((lambda _. true + 1)
+>    (((lambda _. true + 1) 0)
+>       (((lambda _. true + 1)
+>           (((lambda _. true + 1) 1)
+>              (((lambda _. true + 1)
+>                  (((lambda _. true + 1) 2)
+>                     (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                        ((lambda _. true + 1) 0))))
+>                 (((lambda _. true + 1) 3)
+>                    (((lambda _. true + 1)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                           ((lambda _. true + 1) 1)))
+>                       ((lambda _. true + 1) 0))))))
+>          (((lambda _. true + 1) 4)
+>             (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>   (((lambda _. true + 1) 6)
+>      (((lambda _. true + 1) 7) ((lambda _. true + 1) 6)))
+> in expression 
+> (lambda e.
+>    ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>       (lambda _. true + 1))
+>      (lambda e1.
+>         lambda e2.
+>           ((((fix eval is
+>                 lambda e.
+>                   ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                      (lambda _. true + 1))
+>                     (lambda e1.
+>                        lambda e2.
+>                          (((eval e1)
+>                              (lambda _.
+>                                 (lambda f. f false) (lambda _. true + 1)))
+>                             (lambda _. true + 1))
+>                            (lambda _.
+>                               lambda _.
+>                                 (lambda f. f false) (lambda _. true + 1))))
+>                e1)
+>               (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>              (lambda _. true + 1))
+>             (lambda _. lambda _. (lambda f. f false) (lambda _. true + 1))))
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+> in expression 
+> let dec_ast = lambda e.
+>                 ((e (lambda i. 0 :: i))
+>                    (lambda i.
+>                       lambda e1.
+>                         1 ::
+>                           (i ::
+>                              ((fix dec_ast is
+>                                  lambda e.
+>                                    ((e (lambda i. 0 :: i))
+>                                       (lambda i.
+>                                          lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                      (lambda e1.
+>                                         lambda e2.
+>                                           2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                 e1))))
+>                   (lambda e1.
+>                      lambda e2.
+>                        2 ::
+>                          (((fix dec_ast is
+>                               lambda e.
+>                                 ((e (lambda i. 0 :: i))
+>                                    (lambda i.
+>                                       lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                   (lambda e1.
+>                                      lambda e2.
+>                                        2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                              e1) ::
+>                             ((fix dec_ast is
+>                                 lambda e.
+>                                   ((e (lambda i. 0 :: i))
+>                                      (lambda i.
+>                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                     (lambda e1.
+>                                        lambda e2.
+>                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                e2))) in
+> (lambda e.
+>    ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>       (lambda _. true + 1))
+>      (lambda e1.
+>         lambda e2.
+>           ((((fix eval is
+>                 lambda e.
+>                   ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                      (lambda _. true + 1))
+>                     (lambda e1.
+>                        lambda e2.
+>                          (((eval e1)
+>                              (lambda _.
+>                                 (lambda f. f false) (lambda _. true + 1)))
+>                             (lambda _. true + 1))
+>                            (lambda _.
+>                               lambda _.
+>                                 (lambda f. f false) (lambda _. true + 1))))
+>                e1)
+>               (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>              (lambda _. true + 1))
+>             (lambda _. lambda _. (lambda f. f false) (lambda _. true + 1))))
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+> in expression 
+> let eval = lambda e.
+>              ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                 (lambda _. true + 1))
+>                (lambda e1.
+>                   lambda e2.
+>                     ((((fix eval is
+>                           lambda e.
+>                             ((e
+>                                 (lambda _.
+>                                    (lambda f. f false) (lambda _. true + 1)))
+>                                (lambda _. true + 1))
+>                               (lambda e1.
+>                                  lambda e2.
+>                                    (((eval e1)
+>                                        (lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1)))
+>                                       (lambda _. true + 1))
+>                                      (lambda _.
+>                                         lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1))))
+>                          e1)
+>                         (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                        (lambda _. true + 1))
+>                       (lambda _.
+>                          lambda _. (lambda f. f false) (lambda _. true + 1))) in
+> let dec_ast = lambda e.
+>                 ((e (lambda i. 0 :: i))
+>                    (lambda i.
+>                       lambda e1.
+>                         1 ::
+>                           (i ::
+>                              ((fix dec_ast is
+>                                  lambda e.
+>                                    ((e (lambda i. 0 :: i))
+>                                       (lambda i.
+>                                          lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                      (lambda e1.
+>                                         lambda e2.
+>                                           2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                 e1))))
+>                   (lambda e1.
+>                      lambda e2.
+>                        2 ::
+>                          (((fix dec_ast is
+>                               lambda e.
+>                                 ((e (lambda i. 0 :: i))
+>                                    (lambda i.
+>                                       lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                   (lambda e1.
+>                                      lambda e2.
+>                                        2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                              e1) ::
+>                             ((fix dec_ast is
+>                                 lambda e.
+>                                   ((e (lambda i. 0 :: i))
+>                                      (lambda i.
+>                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                     (lambda e1.
+>                                        lambda e2.
+>                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                e2))) in
+> eval
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+> in expression 
+> let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+> let eval = lambda e.
+>              ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                 (lambda _. true + 1))
+>                (lambda e1.
+>                   lambda e2.
+>                     ((((fix eval is
+>                           lambda e.
+>                             ((e
+>                                 (lambda _.
+>                                    (lambda f. f false) (lambda _. true + 1)))
+>                                (lambda _. true + 1))
+>                               (lambda e1.
+>                                  lambda e2.
+>                                    (((eval e1)
+>                                        (lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1)))
+>                                       (lambda _. true + 1))
+>                                      (lambda _.
+>                                         lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1))))
+>                          e1)
+>                         (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                        (lambda _. true + 1))
+>                       (lambda _.
+>                          lambda _. (lambda f. f false) (lambda _. true + 1))) in
+> let dec_ast = lambda e.
+>                 ((e (lambda i. 0 :: i))
+>                    (lambda i.
+>                       lambda e1.
+>                         1 ::
+>                           (i ::
+>                              ((fix dec_ast is
+>                                  lambda e.
+>                                    ((e (lambda i. 0 :: i))
+>                                       (lambda i.
+>                                          lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                      (lambda e1.
+>                                         lambda e2.
+>                                           2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                 e1))))
+>                   (lambda e1.
+>                      lambda e2.
+>                        2 ::
+>                          (((fix dec_ast is
+>                               lambda e.
+>                                 ((e (lambda i. 0 :: i))
+>                                    (lambda i.
+>                                       lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                   (lambda e1.
+>                                      lambda e2.
+>                                        2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                              e1) ::
+>                             ((fix dec_ast is
+>                                 lambda e.
+>                                   ((e (lambda i. 0 :: i))
+>                                      (lambda i.
+>                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                     (lambda e1.
+>                                        lambda e2.
+>                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                e2))) in
+> eval
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+> in expression 
+> let app_enc = lambda _. true + 1 in
+> let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+> let eval = lambda e.
+>              ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                 (lambda _. true + 1))
+>                (lambda e1.
+>                   lambda e2.
+>                     ((((fix eval is
+>                           lambda e.
+>                             ((e
+>                                 (lambda _.
+>                                    (lambda f. f false) (lambda _. true + 1)))
+>                                (lambda _. true + 1))
+>                               (lambda e1.
+>                                  lambda e2.
+>                                    (((eval e1)
+>                                        (lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1)))
+>                                       (lambda _. true + 1))
+>                                      (lambda _.
+>                                         lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1))))
+>                          e1)
+>                         (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                        (lambda _. true + 1))
+>                       (lambda _.
+>                          lambda _. (lambda f. f false) (lambda _. true + 1))) in
+> let dec_ast = lambda e.
+>                 ((e (lambda i. 0 :: i))
+>                    (lambda i.
+>                       lambda e1.
+>                         1 ::
+>                           (i ::
+>                              ((fix dec_ast is
+>                                  lambda e.
+>                                    ((e (lambda i. 0 :: i))
+>                                       (lambda i.
+>                                          lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                      (lambda e1.
+>                                         lambda e2.
+>                                           2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                 e1))))
+>                   (lambda e1.
+>                      lambda e2.
+>                        2 ::
+>                          (((fix dec_ast is
+>                               lambda e.
+>                                 ((e (lambda i. 0 :: i))
+>                                    (lambda i.
+>                                       lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                   (lambda e1.
+>                                      lambda e2.
+>                                        2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                              e1) ::
+>                             ((fix dec_ast is
+>                                 lambda e.
+>                                   ((e (lambda i. 0 :: i))
+>                                      (lambda i.
+>                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                     (lambda e1.
+>                                        lambda e2.
+>                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                e2))) in
+> eval
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+> in expression 
+> let lam_enc = lambda _. true + 1 in
+> let app_enc = lambda _. true + 1 in
+> let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+> let eval = lambda e.
+>              ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                 (lambda _. true + 1))
+>                (lambda e1.
+>                   lambda e2.
+>                     ((((fix eval is
+>                           lambda e.
+>                             ((e
+>                                 (lambda _.
+>                                    (lambda f. f false) (lambda _. true + 1)))
+>                                (lambda _. true + 1))
+>                               (lambda e1.
+>                                  lambda e2.
+>                                    (((eval e1)
+>                                        (lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1)))
+>                                       (lambda _. true + 1))
+>                                      (lambda _.
+>                                         lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1))))
+>                          e1)
+>                         (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                        (lambda _. true + 1))
+>                       (lambda _.
+>                          lambda _. (lambda f. f false) (lambda _. true + 1))) in
+> let dec_ast = lambda e.
+>                 ((e (lambda i. 0 :: i))
+>                    (lambda i.
+>                       lambda e1.
+>                         1 ::
+>                           (i ::
+>                              ((fix dec_ast is
+>                                  lambda e.
+>                                    ((e (lambda i. 0 :: i))
+>                                       (lambda i.
+>                                          lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                      (lambda e1.
+>                                         lambda e2.
+>                                           2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                 e1))))
+>                   (lambda e1.
+>                      lambda e2.
+>                        2 ::
+>                          (((fix dec_ast is
+>                               lambda e.
+>                                 ((e (lambda i. 0 :: i))
+>                                    (lambda i.
+>                                       lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                   (lambda e1.
+>                                      lambda e2.
+>                                        2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                              e1) ::
+>                             ((fix dec_ast is
+>                                 lambda e.
+>                                   ((e (lambda i. 0 :: i))
+>                                      (lambda i.
+>                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                     (lambda e1.
+>                                        lambda e2.
+>                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                e2))) in
+> eval
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+> in expression 
+> let var_enc = lambda _. true + 1 in
+> let lam_enc = lambda _. true + 1 in
+> let app_enc = lambda _. true + 1 in
+> let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+> let eval = lambda e.
+>              ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                 (lambda _. true + 1))
+>                (lambda e1.
+>                   lambda e2.
+>                     ((((fix eval is
+>                           lambda e.
+>                             ((e
+>                                 (lambda _.
+>                                    (lambda f. f false) (lambda _. true + 1)))
+>                                (lambda _. true + 1))
+>                               (lambda e1.
+>                                  lambda e2.
+>                                    (((eval e1)
+>                                        (lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1)))
+>                                       (lambda _. true + 1))
+>                                      (lambda _.
+>                                         lambda _.
+>                                           (lambda f. f false)
+>                                             (lambda _. true + 1))))
+>                          e1)
+>                         (lambda _. (lambda f. f false) (lambda _. true + 1)))
+>                        (lambda _. true + 1))
+>                       (lambda _.
+>                          lambda _. (lambda f. f false) (lambda _. true + 1))) in
+> let dec_ast = lambda e.
+>                 ((e (lambda i. 0 :: i))
+>                    (lambda i.
+>                       lambda e1.
+>                         1 ::
+>                           (i ::
+>                              ((fix dec_ast is
+>                                  lambda e.
+>                                    ((e (lambda i. 0 :: i))
+>                                       (lambda i.
+>                                          lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                      (lambda e1.
+>                                         lambda e2.
+>                                           2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                 e1))))
+>                   (lambda e1.
+>                      lambda e2.
+>                        2 ::
+>                          (((fix dec_ast is
+>                               lambda e.
+>                                 ((e (lambda i. 0 :: i))
+>                                    (lambda i.
+>                                       lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                   (lambda e1.
+>                                      lambda e2.
+>                                        2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                              e1) ::
+>                             ((fix dec_ast is
+>                                 lambda e.
+>                                   ((e (lambda i. 0 :: i))
+>                                      (lambda i.
+>                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+>                                     (lambda e1.
+>                                        lambda e2.
+>                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+>                                e2))) in
+> eval
+>   (((lambda _. true + 1)
+>       (((lambda _. true + 1) 0)
+>          (((lambda _. true + 1)
+>              (((lambda _. true + 1) 1)
+>                 (((lambda _. true + 1)
+>                     (((lambda _. true + 1) 2)
+>                        (((lambda _. true + 1) ((lambda _. true + 1) 2))
+>                           ((lambda _. true + 1) 0))))
+>                    (((lambda _. true + 1) 3)
+>                       (((lambda _. true + 1)
+>                           (((lambda _. true + 1) ((lambda _. true + 1) 3))
+>                              ((lambda _. true + 1) 1)))
+>                          ((lambda _. true + 1) 0))))))
+>             (((lambda _. true + 1) 4)
+>                (((lambda _. true + 1) 5) ((lambda _. true + 1) 5))))))
+>      (((lambda _. true + 1) 6)
+>         (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))
+>           Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+>           Called from Dune__exe__Test_lamp.test_eval_with in file "test/test_lamp.ml", line 42, characters 36-67
+>           Called from Alcotest_engine__Core.Make.protect_test.(fun) in file "src/alcotest-engine/core.ml", line 181, characters 17-23
+>           Called from Alcotest_engine__Monad.Identity.catch in file "src/alcotest-engine/monad.ml", line 24, characters 31-35
+>           
+> Logs saved to `~/Documents/CS162/homework/hw3/_build/default/test/_build/_tests/hw3/meta_encoding.000.output'.
+>  ──────────────────────────────────────────────────────────────────────────────
+>
+> Full test results in `~/Documents/CS162/homework/hw3/_build/default/test/_build/_tests/hw3'.
+> 3 failures! in 1.011s. 18 tests run.
+[1]

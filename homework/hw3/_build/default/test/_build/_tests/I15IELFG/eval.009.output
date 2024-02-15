@@ -1,0 +1,39 @@
+[33mASSERT[0m let countfrom = fix countfrom is lambda n. lambda _. n :: (countfrom (n + 1)) in
+let nat = countfrom 0 in
+let force = lambda l. l false in
+let filter = fix filter is
+               lambda l.
+                 lambda p.
+                   lambda _.
+                     match force l with
+                     | Nil -> Nil
+                     | h :: t -> if p h
+                                 then h :: ((filter t) p)
+                                 else force ((filter t) p)
+                     end in
+let take = fix take is
+             lambda l.
+               lambda n.
+                 match force l with
+                 | Nil -> Nil
+                 | h :: t -> if n = 0 then Nil else h :: ((take t) (n - 1))
+                 end in
+let divides = fix divides is
+                lambda x.
+                  lambda y.
+                    if x > y
+                    then false
+                    else if x = y then true else (divides x) (y - x) in
+let not = lambda b. if b then false else true in
+let sieve = fix sieve is
+              lambda l.
+                lambda _.
+                  match force l with
+                  | Nil -> Nil
+                  | h :: t -> h ::
+                                (sieve
+                                   ((filter t)
+                                      (lambda n. not ((divides h) n))))
+                  end in
+let primes = sieve (countfrom 2) in
+(take primes) 20

@@ -1,0 +1,1 @@
+[33mASSERT[0m (lambda x. (lambda f. f x) (lambda x. x * 3)) 2

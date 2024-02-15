@@ -12,6 +12,7 @@ type token =
   | RPAREN
   | DOT
   | COMMA
+  | SHARP
   | AT
   | FIX
   | IS

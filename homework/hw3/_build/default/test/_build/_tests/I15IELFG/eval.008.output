@@ -1,0 +1,8 @@
+[33mASSERT[0m let add_n = fix add_n is
+              lambda l.
+                lambda n.
+                  match l with
+                  | Nil -> Nil
+                  | x :: xs -> (x + n) :: ((add_n xs) n)
+                  end in
+(add_n (1 :: (2 :: Nil))) 10

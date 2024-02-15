@@ -1,0 +1,536 @@
+[failure] Got stuck!
+Cannot add values: true + 1
+in expression true + 1
+in expression (lambda _.
+                                                                    true + 1)
+                                                                   0
+in expression 
+((lambda _. true + 1) 0)
+  (((lambda _. true + 1) ((lambda _. true + 1) 0))
+     (((lambda _. true + 1) 1)
+        (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))
+in expression 
+(lambda _. true + 1)
+  (((lambda _. true + 1) 0)
+     (((lambda _. true + 1) ((lambda _. true + 1) 0))
+        (((lambda _. true + 1) 1)
+           (((lambda _. true + 1) 2) ((lambda _. true + 1) 1)))))
+in expression 
+((lambda _. true + 1)
+   (((lambda _. true + 1) 0)
+      (((lambda _. true + 1) ((lambda _. true + 1) 0))
+         (((lambda _. true + 1) 1)
+            (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+  (((lambda _. true + 1) 3)
+     (((lambda _. true + 1)
+         (((lambda _. true + 1) ((lambda _. true + 1) 3))
+            (((lambda _. true + 1) 4)
+               (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+        (((lambda _. true + 1) 6)
+           (((lambda _. true + 1) 7) ((lambda _. true + 1) 6)))))
+in expression 
+(lambda e.
+   ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+      (lambda _. true + 1))
+     (lambda e1.
+        lambda e2.
+          ((((fix eval is
+                lambda e.
+                  ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                     (lambda _. true + 1))
+                    (lambda e1.
+                       lambda e2.
+                         (((eval e1)
+                             (lambda _.
+                                (lambda f. f false) (lambda _. true + 1)))
+                            (lambda _. true + 1))
+                           (lambda _.
+                              lambda _.
+                                (lambda f. f false) (lambda _. true + 1))))
+               e1)
+              (lambda _. (lambda f. f false) (lambda _. true + 1)))
+             (lambda _. true + 1))
+            (lambda _. lambda _. (lambda f. f false) (lambda _. true + 1))))
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+in expression 
+let dec_ast = lambda e.
+                ((e (lambda i. 0 :: i))
+                   (lambda i.
+                      lambda e1.
+                        1 ::
+                          (i ::
+                             ((fix dec_ast is
+                                 lambda e.
+                                   ((e (lambda i. 0 :: i))
+                                      (lambda i.
+                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+                                     (lambda e1.
+                                        lambda e2.
+                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+                                e1))))
+                  (lambda e1.
+                     lambda e2.
+                       2 ::
+                         (((fix dec_ast is
+                              lambda e.
+                                ((e (lambda i. 0 :: i))
+                                   (lambda i.
+                                      lambda e1. 1 :: (i :: (dec_ast e1))))
+                                  (lambda e1.
+                                     lambda e2.
+                                       2 :: ((dec_ast e1) :: (dec_ast e2))))
+                             e1) ::
+                            ((fix dec_ast is
+                                lambda e.
+                                  ((e (lambda i. 0 :: i))
+                                     (lambda i.
+                                        lambda e1. 1 :: (i :: (dec_ast e1))))
+                                    (lambda e1.
+                                       lambda e2.
+                                         2 :: ((dec_ast e1) :: (dec_ast e2))))
+                               e2))) in
+(lambda e.
+   ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+      (lambda _. true + 1))
+     (lambda e1.
+        lambda e2.
+          ((((fix eval is
+                lambda e.
+                  ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                     (lambda _. true + 1))
+                    (lambda e1.
+                       lambda e2.
+                         (((eval e1)
+                             (lambda _.
+                                (lambda f. f false) (lambda _. true + 1)))
+                            (lambda _. true + 1))
+                           (lambda _.
+                              lambda _.
+                                (lambda f. f false) (lambda _. true + 1))))
+               e1)
+              (lambda _. (lambda f. f false) (lambda _. true + 1)))
+             (lambda _. true + 1))
+            (lambda _. lambda _. (lambda f. f false) (lambda _. true + 1))))
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+in expression 
+let eval = lambda e.
+             ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                (lambda _. true + 1))
+               (lambda e1.
+                  lambda e2.
+                    ((((fix eval is
+                          lambda e.
+                            ((e
+                                (lambda _.
+                                   (lambda f. f false) (lambda _. true + 1)))
+                               (lambda _. true + 1))
+                              (lambda e1.
+                                 lambda e2.
+                                   (((eval e1)
+                                       (lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1)))
+                                      (lambda _. true + 1))
+                                     (lambda _.
+                                        lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1))))
+                         e1)
+                        (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                       (lambda _. true + 1))
+                      (lambda _.
+                         lambda _. (lambda f. f false) (lambda _. true + 1))) in
+let dec_ast = lambda e.
+                ((e (lambda i. 0 :: i))
+                   (lambda i.
+                      lambda e1.
+                        1 ::
+                          (i ::
+                             ((fix dec_ast is
+                                 lambda e.
+                                   ((e (lambda i. 0 :: i))
+                                      (lambda i.
+                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+                                     (lambda e1.
+                                        lambda e2.
+                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+                                e1))))
+                  (lambda e1.
+                     lambda e2.
+                       2 ::
+                         (((fix dec_ast is
+                              lambda e.
+                                ((e (lambda i. 0 :: i))
+                                   (lambda i.
+                                      lambda e1. 1 :: (i :: (dec_ast e1))))
+                                  (lambda e1.
+                                     lambda e2.
+                                       2 :: ((dec_ast e1) :: (dec_ast e2))))
+                             e1) ::
+                            ((fix dec_ast is
+                                lambda e.
+                                  ((e (lambda i. 0 :: i))
+                                     (lambda i.
+                                        lambda e1. 1 :: (i :: (dec_ast e1))))
+                                    (lambda e1.
+                                       lambda e2.
+                                         2 :: ((dec_ast e1) :: (dec_ast e2))))
+                               e2))) in
+eval
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+in expression 
+let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+let eval = lambda e.
+             ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                (lambda _. true + 1))
+               (lambda e1.
+                  lambda e2.
+                    ((((fix eval is
+                          lambda e.
+                            ((e
+                                (lambda _.
+                                   (lambda f. f false) (lambda _. true + 1)))
+                               (lambda _. true + 1))
+                              (lambda e1.
+                                 lambda e2.
+                                   (((eval e1)
+                                       (lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1)))
+                                      (lambda _. true + 1))
+                                     (lambda _.
+                                        lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1))))
+                         e1)
+                        (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                       (lambda _. true + 1))
+                      (lambda _.
+                         lambda _. (lambda f. f false) (lambda _. true + 1))) in
+let dec_ast = lambda e.
+                ((e (lambda i. 0 :: i))
+                   (lambda i.
+                      lambda e1.
+                        1 ::
+                          (i ::
+                             ((fix dec_ast is
+                                 lambda e.
+                                   ((e (lambda i. 0 :: i))
+                                      (lambda i.
+                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+                                     (lambda e1.
+                                        lambda e2.
+                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+                                e1))))
+                  (lambda e1.
+                     lambda e2.
+                       2 ::
+                         (((fix dec_ast is
+                              lambda e.
+                                ((e (lambda i. 0 :: i))
+                                   (lambda i.
+                                      lambda e1. 1 :: (i :: (dec_ast e1))))
+                                  (lambda e1.
+                                     lambda e2.
+                                       2 :: ((dec_ast e1) :: (dec_ast e2))))
+                             e1) ::
+                            ((fix dec_ast is
+                                lambda e.
+                                  ((e (lambda i. 0 :: i))
+                                     (lambda i.
+                                        lambda e1. 1 :: (i :: (dec_ast e1))))
+                                    (lambda e1.
+                                       lambda e2.
+                                         2 :: ((dec_ast e1) :: (dec_ast e2))))
+                               e2))) in
+eval
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+in expression 
+let app_enc = lambda _. true + 1 in
+let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+let eval = lambda e.
+             ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                (lambda _. true + 1))
+               (lambda e1.
+                  lambda e2.
+                    ((((fix eval is
+                          lambda e.
+                            ((e
+                                (lambda _.
+                                   (lambda f. f false) (lambda _. true + 1)))
+                               (lambda _. true + 1))
+                              (lambda e1.
+                                 lambda e2.
+                                   (((eval e1)
+                                       (lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1)))
+                                      (lambda _. true + 1))
+                                     (lambda _.
+                                        lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1))))
+                         e1)
+                        (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                       (lambda _. true + 1))
+                      (lambda _.
+                         lambda _. (lambda f. f false) (lambda _. true + 1))) in
+let dec_ast = lambda e.
+                ((e (lambda i. 0 :: i))
+                   (lambda i.
+                      lambda e1.
+                        1 ::
+                          (i ::
+                             ((fix dec_ast is
+                                 lambda e.
+                                   ((e (lambda i. 0 :: i))
+                                      (lambda i.
+                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+                                     (lambda e1.
+                                        lambda e2.
+                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+                                e1))))
+                  (lambda e1.
+                     lambda e2.
+                       2 ::
+                         (((fix dec_ast is
+                              lambda e.
+                                ((e (lambda i. 0 :: i))
+                                   (lambda i.
+                                      lambda e1. 1 :: (i :: (dec_ast e1))))
+                                  (lambda e1.
+                                     lambda e2.
+                                       2 :: ((dec_ast e1) :: (dec_ast e2))))
+                             e1) ::
+                            ((fix dec_ast is
+                                lambda e.
+                                  ((e (lambda i. 0 :: i))
+                                     (lambda i.
+                                        lambda e1. 1 :: (i :: (dec_ast e1))))
+                                    (lambda e1.
+                                       lambda e2.
+                                         2 :: ((dec_ast e1) :: (dec_ast e2))))
+                               e2))) in
+eval
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+in expression 
+let lam_enc = lambda _. true + 1 in
+let app_enc = lambda _. true + 1 in
+let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+let eval = lambda e.
+             ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                (lambda _. true + 1))
+               (lambda e1.
+                  lambda e2.
+                    ((((fix eval is
+                          lambda e.
+                            ((e
+                                (lambda _.
+                                   (lambda f. f false) (lambda _. true + 1)))
+                               (lambda _. true + 1))
+                              (lambda e1.
+                                 lambda e2.
+                                   (((eval e1)
+                                       (lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1)))
+                                      (lambda _. true + 1))
+                                     (lambda _.
+                                        lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1))))
+                         e1)
+                        (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                       (lambda _. true + 1))
+                      (lambda _.
+                         lambda _. (lambda f. f false) (lambda _. true + 1))) in
+let dec_ast = lambda e.
+                ((e (lambda i. 0 :: i))
+                   (lambda i.
+                      lambda e1.
+                        1 ::
+                          (i ::
+                             ((fix dec_ast is
+                                 lambda e.
+                                   ((e (lambda i. 0 :: i))
+                                      (lambda i.
+                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+                                     (lambda e1.
+                                        lambda e2.
+                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+                                e1))))
+                  (lambda e1.
+                     lambda e2.
+                       2 ::
+                         (((fix dec_ast is
+                              lambda e.
+                                ((e (lambda i. 0 :: i))
+                                   (lambda i.
+                                      lambda e1. 1 :: (i :: (dec_ast e1))))
+                                  (lambda e1.
+                                     lambda e2.
+                                       2 :: ((dec_ast e1) :: (dec_ast e2))))
+                             e1) ::
+                            ((fix dec_ast is
+                                lambda e.
+                                  ((e (lambda i. 0 :: i))
+                                     (lambda i.
+                                        lambda e1. 1 :: (i :: (dec_ast e1))))
+                                    (lambda e1.
+                                       lambda e2.
+                                         2 :: ((dec_ast e1) :: (dec_ast e2))))
+                               e2))) in
+eval
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+in expression 
+let var_enc = lambda _. true + 1 in
+let lam_enc = lambda _. true + 1 in
+let app_enc = lambda _. true + 1 in
+let subst = lambda i. lambda e. lambda c. lambda _. true + 1 in
+let eval = lambda e.
+             ((e (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                (lambda _. true + 1))
+               (lambda e1.
+                  lambda e2.
+                    ((((fix eval is
+                          lambda e.
+                            ((e
+                                (lambda _.
+                                   (lambda f. f false) (lambda _. true + 1)))
+                               (lambda _. true + 1))
+                              (lambda e1.
+                                 lambda e2.
+                                   (((eval e1)
+                                       (lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1)))
+                                      (lambda _. true + 1))
+                                     (lambda _.
+                                        lambda _.
+                                          (lambda f. f false)
+                                            (lambda _. true + 1))))
+                         e1)
+                        (lambda _. (lambda f. f false) (lambda _. true + 1)))
+                       (lambda _. true + 1))
+                      (lambda _.
+                         lambda _. (lambda f. f false) (lambda _. true + 1))) in
+let dec_ast = lambda e.
+                ((e (lambda i. 0 :: i))
+                   (lambda i.
+                      lambda e1.
+                        1 ::
+                          (i ::
+                             ((fix dec_ast is
+                                 lambda e.
+                                   ((e (lambda i. 0 :: i))
+                                      (lambda i.
+                                         lambda e1. 1 :: (i :: (dec_ast e1))))
+                                     (lambda e1.
+                                        lambda e2.
+                                          2 :: ((dec_ast e1) :: (dec_ast e2))))
+                                e1))))
+                  (lambda e1.
+                     lambda e2.
+                       2 ::
+                         (((fix dec_ast is
+                              lambda e.
+                                ((e (lambda i. 0 :: i))
+                                   (lambda i.
+                                      lambda e1. 1 :: (i :: (dec_ast e1))))
+                                  (lambda e1.
+                                     lambda e2.
+                                       2 :: ((dec_ast e1) :: (dec_ast e2))))
+                             e1) ::
+                            ((fix dec_ast is
+                                lambda e.
+                                  ((e (lambda i. 0 :: i))
+                                     (lambda i.
+                                        lambda e1. 1 :: (i :: (dec_ast e1))))
+                                    (lambda e1.
+                                       lambda e2.
+                                         2 :: ((dec_ast e1) :: (dec_ast e2))))
+                               e2))) in
+eval
+  (((lambda _. true + 1)
+      (((lambda _. true + 1) 0)
+         (((lambda _. true + 1) ((lambda _. true + 1) 0))
+            (((lambda _. true + 1) 1)
+               (((lambda _. true + 1) 2) ((lambda _. true + 1) 1))))))
+     (((lambda _. true + 1) 3)
+        (((lambda _. true + 1)
+            (((lambda _. true + 1) ((lambda _. true + 1) 3))
+               (((lambda _. true + 1) 4)
+                  (((lambda _. true + 1) 5) ((lambda _. true + 1) 5)))))
+           (((lambda _. true + 1) 6)
+              (((lambda _. true + 1) 7) ((lambda _. true + 1) 6))))))
+          Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+          Called from Dune__exe__Test_lamp.test_eval_with in file "test/test_lamp.ml", line 42, characters 36-67
+          Called from Alcotest_engine__Core.Make.protect_test.(fun) in file "src/alcotest-engine/core.ml", line 181, characters 17-23
+          Called from Alcotest_engine__Monad.Identity.catch in file "src/alcotest-engine/monad.ml", line 24, characters 31-35
+          
