@@ -104,14 +104,14 @@ let rec abstract_eval (gamma : gamma) (e : expr) : ty =
     | ListCons (e1, e2) -> (match abstract_eval gamma e1 with
                             | t1 -> (match abstract_eval gamma e2 with
                                      | TList t2 -> (match equal_ty t1 t2 with
-                                                    | true -> TList t1
+                                                    | true -> TList t1 (** if the types of the elements are the same, then the type of the list is the type of the elements *)
                                                     | false -> ty_err ("[synth] ill-formed list cons" ^ show_expr e2))
                                      | _ -> ty_err ("[synth] ill-formed list cons" ^ show_expr e2)))
     | ListMatch (e1, e2, e3) -> (match abstract_eval gamma e1 with
                                   | TList _ -> let t2 = abstract_eval gamma e2 in
                                                let t3 = abstract_eval gamma e3 in
                                                (match equal_ty t2 t3 with
-                                                | true -> t2
+                                                | true -> t2 (** if the types of the branches are the same, then the type of the listmatch is the type of the branches *)
                                                 | false -> ty_err ("[synth] ill-formed listmatch" ^ show_expr e3))
                                   | _ -> ty_err ("[synth] ill-formed listmatch" ^ show_expr e1))
 
@@ -134,8 +134,7 @@ let rec abstract_eval (gamma : gamma) (e : expr) : ty =
     (* type annotation *)
     | Annot (e, t) -> (match abstract_eval gamma e with
                       | t1 -> (match equal_ty t t1 with
-                               | true -> t
-                               | false -> ty_err ("[synth] ill-formed annotation" ^ show_expr e)) (** if the type of the expression is the same as the given type, then the type of the expression is the given type *)
-                      )
+                               | true -> t (** if the type of the expression is the same as the given type, then the type of the expression is the given type *)
+                               | false -> ty_err ("[synth] ill-formed annotation" ^ show_expr e)))
     | _ -> ty_err ("[synth] ill-formed: " ^ show_expr e)
   with Type_error msg -> ty_err (msg ^ "\nin expression " ^ show_expr e)
