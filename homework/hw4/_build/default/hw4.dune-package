@@ -1,0 +1,4 @@
+(lang dune 3.13)
+(name hw4)
+(sections (lib .) (doc ../../doc/hw4))
+(files (lib (META dune-package opam)) (doc (README.md)))
