@@ -20,39 +20,23 @@
 #        }
 #  ; instrument_with = []
 #  }
-$ /Users/oscar/.opam/cs162/bin/ocamlc.opt -config > /var/folders/bb/dlb0gm215ln6kljb4r1ytcmc0000gn/T/dune_cd5db6_output
-$ (cd _build/.sandbox/3d878f2e5bcb3cb807e266b87c643fcf/default && .ppx/b25831a27f6cc3ffc0d27a4be900dbfc/ppx.exe --cookie 'library-name="lamp"' -o lib/lamp/typecheck.pp.ml --impl lib/lamp/typecheck.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ /Users/oscar/.opam/cs162/bin/ocamlc.opt -config > /var/folders/bb/dlb0gm215ln6kljb4r1ytcmc0000gn/T/dune_b1c1dc_output
+$ (cd _build/.sandbox/0e2e8e055ffdbcac9bff8d9c93824b07/default && .ppx/b25831a27f6cc3ffc0d27a4be900dbfc/ppx.exe --cookie 'library-name="lamp"' -o lib/lamp/typecheck.pp.ml --impl lib/lamp/typecheck.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
 $ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamldep.opt -modules -impl lib/lamp/typecheck.pp.ml) > _build/default/lib/lamp/.lamp.objs/typecheck.impl.d
 $ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I lib/lamp/.lamp.objs/byte -I lib/lamp/.lamp.objs/native -I /Users/oscar/.opam/cs162/lib/base -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types -I /Users/oscar/.opam/cs162/lib/base/caml -I /Users/oscar/.opam/cs162/lib/base/shadow_stdlib -I /Users/oscar/.opam/cs162/lib/fmt -I /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime -I /Users/oscar/.opam/cs162/lib/result -I /Users/oscar/.opam/cs162/lib/sexplib0 -intf-suffix .ml -no-alias-deps -opaque -o lib/lamp/.lamp.objs/native/typecheck.cmx -c -impl lib/lamp/typecheck.pp.ml)
-> File "lib/lamp/typecheck.ml", line 96, characters 30-31:
-> 96 |                             | _ -> ty_err ("[synth] ill-formed list cons"))
->                                    ^
-> Warning 11 [redundant-case]: this match case is unused.
-> File "lib/lamp/typecheck.ml", line 119, characters 6-7:
-> 119 |     | _ -> ty_err ("[synth] ill-formed: " ^ show_expr e)
+> File "lib/lamp/typecheck.ml", line 140, characters 6-7:
+> 140 |     | _ -> ty_err ("[synth] ill-formed: " ^ show_expr e)
 >             ^
 > Warning 11 [redundant-case]: this match case is unused.
-> File "lib/lamp/typecheck.ml", line 75, characters 11-13:
-> 75 |     | App (e1, e2) -> todo()
->                 ^^
-> Warning 27 [unused-var-strict]: unused variable e1.
-> File "lib/lamp/typecheck.ml", line 75, characters 15-17:
-> 75 |     | App (e1, e2) -> todo()
->                     ^^
-> Warning 27 [unused-var-strict]: unused variable e2.
-> File "lib/lamp/typecheck.ml", line 118, characters 13-14:
-> 118 |     | Annot (e, t) -> todo()
->                    ^
-> Warning 27 [unused-var-strict]: unused variable e.
-> File "lib/lamp/typecheck.ml", line 118, characters 16-17:
-> 118 |     | Annot (e, t) -> todo()
->                       ^
-> Warning 27 [unused-var-strict]: unused variable t.
+> File "lib/lamp/typecheck.ml", line 15, characters 4-8:
+> 15 | let todo () = failwith "TODO"
+>          ^^^^
+> Warning 32 [unused-value-declaration]: unused value todo.
 $ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o lib/lamp/lamp.cmxa lib/lamp/.lamp.objs/native/vars.cmx lib/lamp/.lamp.objs/native/ast.cmx lib/lamp/.lamp.objs/native/typecheck.cmx lib/lamp/.lamp.objs/native/cmd.cmx lib/lamp/.lamp.objs/native/err.cmx lib/lamp/.lamp.objs/native/parser.cmx lib/lamp/.lamp.objs/native/scanner.cmx lib/lamp/.lamp.objs/native/parse_util.cmx lib/lamp/.lamp.objs/native/eval.cmx)
 $ (cd _build/default && /Users/oscar/.opam/cs162/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/hw4_test.exe /Users/oscar/.opam/cs162/lib/fmt/fmt.cmxa /Users/oscar/.opam/cs162/lib/astring/astring.cmxa /Users/oscar/.opam/cs162/lib/cmdliner/cmdliner.cmxa /Users/oscar/.opam/cs162/lib/uutf/uutf.cmxa /Users/oscar/.opam/cs162/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/oscar/.opam/cs162/lib/fmt/fmt_cli.cmxa /Users/oscar/.opam/cs162/lib/re/re.cmxa /Users/oscar/.opam/cs162/lib/stdlib-shims/stdlib_shims.cmxa /Users/oscar/.opam/cs162/lib/alcotest/engine/alcotest_engine.cmxa /Users/oscar/.opam/cs162/lib/ocaml/unix.cmxa -I /Users/oscar/.opam/cs162/lib/ocaml /Users/oscar/.opam/cs162/lib/fmt/fmt_tty.cmxa /Users/oscar/.opam/cs162/lib/alcotest/alcotest.cmxa -I /Users/oscar/.opam/cs162/lib/alcotest /Users/oscar/.opam/cs162/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/oscar/.opam/cs162/lib/base/base_internalhash_types /Users/oscar/.opam/cs162/lib/base/caml/caml.cmxa /Users/oscar/.opam/cs162/lib/sexplib0/sexplib0.cmxa /Users/oscar/.opam/cs162/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/oscar/.opam/cs162/lib/base/base.cmxa -I /Users/oscar/.opam/cs162/lib/base /Users/oscar/.opam/cs162/lib/result/result.cmxa /Users/oscar/.opam/cs162/lib/ppx_deriving/runtime/ppx_deriving_runtime.cmxa lib/lamp/lamp.cmxa lib/meta/meta.cmxa test/.hw4_test.eobjs/native/dune__exe.cmx test/.hw4_test.eobjs/native/dune__exe__Test_typing.cmx test/.hw4_test.eobjs/native/dune__exe__Hw4_test.cmx)
 $ (cd _build/default/test && ./hw4_test.exe)
 > Testing `hw4'.
-> This run has ID `GVWAVFDD'.
+> This run has ID `67Y0UM1R'.
 >
 >   [OK]          equal_ty            0   equal_ty.
 >   [OK]          well_typed          0   well_typed.
